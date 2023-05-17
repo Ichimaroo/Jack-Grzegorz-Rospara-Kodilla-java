@@ -7,8 +7,8 @@ public class WeatherForecastTestSuite {
     @Test
     void testCalculateForecastWithStub() {
         //Given
-        Temperatures temperatures = new TemperaturesStub();                     // [1]
-        WeatherForecast weatherForecast = new WeatherForecast(temperatures);    // [2]
+        Temperatures temperatures = new TemperaturesStub();
+        WeatherForecast weatherForecast = new WeatherForecast(temperatures);
 
         //When
         int quantityOfSensors = weatherForecast.calculateForecast().size();
