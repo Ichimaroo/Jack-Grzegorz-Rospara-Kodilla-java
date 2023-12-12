@@ -1,51 +1,47 @@
 package com.kodilla.patterns.singleton;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+public class SettingsTestSuite {
 
-class SettingsFileEngineTestSuite {
-
-    private static SettingsFileEngine settingsFileEngine;
-
-    @BeforeAll
+    @BeforeClass
     public static void openSettingsFile() {
-        settingsFileEngine = SettingsFileEngine.INSTANCE;
-        settingsFileEngine.open("myapp.settings");
+        Settings.getInstance().open("myapp.settings");
     }
 
-    @AfterAll
+    @AfterClass
     public static void closeSettingsFile() {
-        settingsFileEngine.close();
+        Settings.getInstance().close();
     }
 
     @Test
-    void testGetFileName() {
+    public void testGetFileName() {
         //Given
         //When
-        String fileName = settingsFileEngine.getFileName();
+        String fileName = Settings.getInstance().getFileName();
         System.out.println("Opened: " + fileName);
         //Then
-        assertEquals("myapp.settings", fileName);
+        Assert.assertEquals("myapp.settings", fileName);
     }
 
     @Test
-    void testLoadSettings() {
+    public void testLoadSettings() {
         //Given
         //When
-        boolean result = settingsFileEngine.loadSettings();
+        boolean result = Settings.getInstance().loadSettings();
         //Then
-        assertTrue(result);
+        Assert.assertTrue(result);
     }
 
     @Test
-    void testSaveSettings() {
+    public void testSaveSettings() {
         //Given
         //When
-        boolean result = settingsFileEngine.saveSettings();
+        boolean result = Settings.getInstance().saveSettings();
         //Then
-        assertTrue(result);
+        Assert.assertTrue(result);
     }
 }

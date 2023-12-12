@@ -1,17 +1,17 @@
 package com.kodilla.patterns.singleton;
 
-public class SettingsFileEngine {
-    private static SettingsFileEngine settingsFileEngineInstance = null;
+public class Settings {
+    private static Settings settingsInstance = null;
     private String fileName = "";
 
-    private SettingsFileEngine() {
+    private Settings() {
     }
 
-    public static SettingsFileEngine getInstance() {
-        if (settingsFileEngineInstance == null) {
-            settingsFileEngineInstance = new SettingsFileEngine();
+    public static Settings getInstance() {
+        if (settingsInstance == null) {
+            settingsInstance = new Settings();
         }
-        return settingsFileEngineInstance;
+        return settingsInstance;
     }
 
     public String getFileName() {
@@ -20,21 +20,21 @@ public class SettingsFileEngine {
 
     public void open(final String fileName) {
         this.fileName = fileName;
-        System.out.println("Opening the settings file");
+        System.out.println("Opening settings");
     }
 
     public void close() {
         this.fileName = "";
-        System.out.println("Closing the settings file");
+        System.out.println("Closing settings");
     }
 
     public boolean loadSettings() {
-        System.out.println("Loading settings from file");
+        System.out.println("Loading settings");
         return true;
     }
 
     public boolean saveSettings() {
-        System.out.println("Saving settings to file");
+        System.out.println("Saving settings");
         return true;
     }
 }
