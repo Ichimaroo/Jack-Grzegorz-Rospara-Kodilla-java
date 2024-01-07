@@ -1,2 +1,6 @@
-package com.kodilla.patterns.strategy;public interface BuyPredictor {
+package com.kodilla.patterns.strategy;
+
+public interface BuyPredictor {
+
+    String predictWhatToBuy();
 }
